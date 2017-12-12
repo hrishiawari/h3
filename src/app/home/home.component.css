@@ -1,0 +1,46 @@
+.logo img{
+    width: 100%;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+.c img{
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    
+}
+.adjust img{
+    margin-left: 50px;
+}
+
+.tagline{
+    text-align: center;
+    font-family: "Cookie";
+    text-shadow: 3px 3px 2px white;
+    
+}
+.tagline h3{
+    font-size: 50px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .small1 img{
+        width: 40%;
+        float:left;
+      background-color: red;
+    }
+ 
+    .small img{
+       width: 40%;
+       float: right;
+       background-color: red;
+       
+    }
+   .btop img{
+   width:40%;    
+   }
+   
+   }

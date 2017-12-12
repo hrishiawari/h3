@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="card" *ngFor="let request of request">
+              <div class="card-title">
+                {{request.name}} 
+                {{request.desc}}
+               </div>
+              <div class="card-body">{{request.id}}</div>
+               </div>
+      </div>
+      <div class="col-md-6">
+        <button (click)="post=!post" class="btn btn-primary">Post New Add</button>
+        <div class="card" *ngIf="post">
+          <br>
+          <form class="ajax-form" [formGroup]="Add" (ngSubmit)="submitAdd();Add.reset()">
+            <div class="form-group">
+              <input type="text" placeholder="title" formControlName="title">
+              <span class="text-muted" *ngIf="!Add.controls.title.valid">Enter Add Title</span>
+            </div>
+            <div class="form-group">
+              <textarea type="text" placeholder="Discription" formControlName="disc"></textarea>
+              <span class="text-muted" *ngIf="!Add.controls.disc.valid">Enter Discription</span>
+            </div>
+            <input type="submit" value="Publish Add" class="btn btn-info">
+          </form>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="hq">
+            <img [src]="ImgUrl" class="profile-pic" alt="No Preview...">
+            <div class="profile-pic">
+              <span class="fa fa-camera"></span>
+              <span id="get_file" (click)="choosePhoto()">Change Image</span>
+              <span>
+                <input type="file" id="my_file" (change)="readUrl($event)" accept="image/x-png,image/gif,image/jpeg">
+              </span>
+            </div>
+          </div>
+          <h3>Name</h3>
+          <h5>Other Details</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

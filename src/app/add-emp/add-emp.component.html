@@ -1,0 +1,76 @@
+<div class="col-md-12">
+  <div class="row">
+   
+    
+        <div class="card">
+          <br>
+          <form class="ajax-form" id="contactForm" [formGroup]="myFrm" (ngSubmit)="onFrmSub()" novalidate>
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Your Name" formControlName="name">
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.name.valid">Enter Your Name*</span>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Email" formControlName="email">
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.email.valid">Enter Email*</span>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Mobile No" formControlName="mobile">
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.mobile.valid">Enter Mobile Number*</span>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Mobile No" formControlName="mobilewhatsapp">
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.mobilewhatsapp.valid">Enter Whatsapp Number*</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Adhar no" formControlName="adharNo"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.adharNo.valid">Adhar Number</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Current Address" formControlName="cAddress"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.cAddress.valid">Current Address</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Permanent Address" formControlName="pAddress"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.pAddress.valid">permanent Address</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Birth Date" formControlName="bdate"></textarea>
+              <span class="text-muted text-danger " *ngIf="!myFrm.controls.bdate.valid">Birth Date</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Qualification" formControlName="qualif"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.qualif.valid">Qualification</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Experiance" formControlName="exp"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.exp.valid">Experiance</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Projects" formControlName="projects"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.projects.valid">Projects</span>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" type="text" placeholder="Last Package " formControlName="lastpack"></textarea>
+              <span class="text-muted text-danger" *ngIf="!myFrm.controls.lastpack.valid">Last Package </span>
+            </div>
+            By clicking submit you agree to send Yur Information to DeVikas Software Solution Pvt Ltd,Who agree to use it according to
+            their privacy Policy
+            <div class="form-group">
+              <!-- <input type="submit" value="submit" name="submit" class="btn btn-info"> -->
+              <input type="submit" value="submit" name="submit" class="btn btn-info" [disabled]="!myFrm.valid">
+            </div>
+          </form>
+        </div>
+   
+     
+    </div>
+  </div>
+<div class="fixer" *ngIf="okk" (click)="next()">
+  <div class="card">
+    <div class="card-title">{{contacttitle}}</div>
+  
+  <div class="card-body">
+      {{contactmsg}} 
+  </div>
+  </div>
+</div>

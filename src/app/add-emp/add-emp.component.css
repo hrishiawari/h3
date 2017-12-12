@@ -1,0 +1,40 @@
+.card{
+    background-color:white;
+   
+    text-align: center; 
+       margin-top: 10px;
+
+}
+.card input,textarea{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.fixer{
+    position: fixed;
+    overflow: hidden;
+    background-color:rgba(0, 0, 255, 0.377);
+    z-index: 9999;
+   left: 0px; 
+   top: 0;
+   bottom: 0;
+    right: 0; 
+}
+
+@media only screen and (max-width: 768px) {
+    .card{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: center; 
+
+    }
+    .card input,textarea{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    
+
+}

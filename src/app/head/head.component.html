@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-primary" (click)="ad=!ad">Add Admin</button>
+        <div class="card" *ngIf="ad">
+          <br>
+          <form class="ajax-form" [formGroup]="AdAdmin" (ngSubmit)="adAdmin();AdAdmin.reset()">
+            <div class="form-group">
+              <input type="text" placeholder="Name" formControlName="name">
+              <span class="text-muted" *ngIf="!AdAdmin.controls.name.valid">Enter Name</span>
+            </div>
+            <div class="form-group">
+              <textarea type="text" placeholder="Category" formControlName="category"></textarea>
+              <span class="text-muted" *ngIf="!AdAdmin.controls.category.valid">enter Category</span>
+            </div>
+            <input type="submit" value="Make Admin" class="btn btn-info">
+          </form>
+        </div>
+
+        <div>
+          <br>
+
+          <button class="btn btn-primary">Admin List</button>
+          <div class="card" style="text-align:left" *ngFor="let adlist of adlist">
+            <div class="card-title" style="color:green;margin-left:20px;">
+            {{adlist.name}}
+            <div class="float-right" style="color:red;font-size:20px;">
+            {{adlist.id}}</div>
+            </div>
+            <div class="card-body" style="font-weight:bold;color:blueviolet;margin-left:20px;">
+            {{adlist.category}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <br>
+
+          <br>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="hq">
+            <img [src]="ImgUrl" class="profile-pic" alt="No Preview...">
+            <div class="profile-pic">
+              <span class="fa fa-camera"></span>
+              <span id="get_file" (click)="choosePhoto()">Change Image</span>
+              <span>
+                <input type="file" id="my_file" (change)="readUrl($event)" accept="image/x-png,image/gif,image/jpeg">
+              </span>
+            </div>
+          </div>
+          <h3>Name</h3>
+          <h5>Other Details</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let key of keysArray; let i = index;">{{key}}</th>
+      <tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of araylist1;">
+      <td *ngFor="let key of keysArray;">{{item[key]}}</td>
+      <tr>
+  </tbody>
+</table>
