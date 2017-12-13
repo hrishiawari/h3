@@ -2,15 +2,38 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-3">
-          <div class="card" *ngFor="let request of request">
+          <div class="card" *ngFor="let request of request"(click)="view()">
               <div class="card-title">
-                {{request.name}} 
+                {{request.name}}
                 {{request.desc}}
                </div>
               <div class="card-body">{{request.id}}</div>
                </div>
       </div>
       <div class="col-md-6">
+
+
+
+        <div id="HideDiv">
+
+            <div class="card">
+              <div>
+                <div class="hq1">
+                  <img [src]="ImgUrl1" class="profile-pic" alt="">
+
+                </div>
+                  <div class="Details">
+                    <h3>Name</h3>
+                    <h6>Contact</h6>
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+
+
+
         <button (click)="post=!post" class="btn btn-primary">Post New Add</button>
         <div class="card" *ngIf="post">
           <br>

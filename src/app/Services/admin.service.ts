@@ -11,12 +11,12 @@ export class AdminService {
   constructor(private http:Http) {
     this.val=new EventEmitter<any>()
    }
-
+linkhit="http://localhost:7575/devikasweb/";
 postAdd(Data){
   const headers =new Headers()
   headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
   const body = JSON.stringify(Data);
-  return this.http.post('http://localhost:4200/post', body, { headers })
+  return this.http.post(this.linkhit, body, { headers })
   .map(res => res.json())
 
 
@@ -27,5 +27,9 @@ this.val.subscribe(call=>{
   callback(call);
 });
 }
+
+getRequest(){
+  return this.http.get(this.linkhit)
+  .map(res => res.json())}
 
 }

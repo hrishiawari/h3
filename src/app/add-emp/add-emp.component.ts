@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgForm } from '@angular/forms';
- import { FirstServiceService } from '../Services/first-service.service';
+import { FirstServiceService } from '../Services/first-service.service';
 @Component({
   selector: 'app-add-emp',
   templateUrl: './add-emp.component.html',
@@ -10,38 +10,40 @@ import { NgForm } from '@angular/forms';
 export class AddEmpComponent implements OnInit {
 
   myFrm: FormGroup;
-  okk=false;
+  okk = false;
   GoldData;
   contacttitle;
   contactmsg;
   addtitle;
- 
+
   obj2
-   obj1 = {
+  obj1 = {
     addTitle: this.addtitle,
-    
-}
+  }
 
 
 
-  constructor( 
-    private ser:FirstServiceService,
+  constructor(
+    private ser: FirstServiceService,
     private fb: FormBuilder
- 
-) { 
- 
-}
+
+  ) {
+
+  }
 
 
   ngOnInit() {
 
 
     this.ser.calling(dt => {
-      
-       this.addtitle=dt.title;
 
-     
-     });
+      this.addtitle = dt.title;
+      this.obj1 = {
+        addTitle: this.addtitle,
+
+      }
+
+    });
 
 
 
@@ -50,9 +52,9 @@ export class AddEmpComponent implements OnInit {
       // message: ['', Validators.required],
       email: ['', Validators.compose([
         Validators.required,
-        Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]
+        Validators.pattern('[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?')]
       )],
-      mobile: ['',Validators.compose([Validators.required])],
+      mobile: ['', Validators.compose([Validators.required])],
       adharNo: ['', Validators.required],
       cAddress: ['', Validators.required],
       pAddress: ['', Validators.required],
@@ -60,61 +62,66 @@ export class AddEmpComponent implements OnInit {
       qualif: ['', Validators.required],
       exp: ['', Validators.required],
       lastpack: ['', Validators.required],
-      projects:['',Validators.required],
-      mobilewhatsapp:['',Validators.required],
+      projects: ['', Validators.required],
+      mobilewhatsapp: ['', Validators.required],
 
-       
-      
-      
+
+
+
     });
-  
-    
+
+
   }
-  
+
 
   onFrmSub() {
 
 
- this.obj2=this.myFrm.value
+    this.obj2 = this.myFrm.value
     for (var key in this.obj2) {
-      this.obj1[key] =this.obj2[key]
+      this.obj1[key] = this.obj2[key]
+    }
+
+    var res = JSON.stringify(this.obj1);
+    let d = JSON.parse(res)
+    // console.log(d);
+
+
+
+
+
+
+
+    // window.onscroll = function () { window.scrollTo(0, 0); };
+    // this.okk = true;
+
+
+    this.ser.submitFrm(d).subscribe(
+      data => {
+        this.GoldData = data
+        console.log(this.GoldData);
+
+        // if (this.GoldData.success === true) {
+        //   this.okk = true;
+        //   this.contacttitle = ' Thank you for getting in touch!';
+        //   this.contactmsg = '  One of our colleagues will get back to you shortly.Have a great day!'
+
+        // }
+        // else {
+        //   this.okk = true;
+        //   this.contacttitle = 'Something Went Wrong !!!';
+        //   this.contactmsg = 'Please Try Again...'
+        // }
+      },
+      err=>{
+        return err
       }
-
-      var res = JSON.stringify(this.obj1);
-     let d=JSON.parse(res)
-      console.log(d);
-
-
-
-
-
-
-
-    // console.log(this.addtitle)
-   console.log(this.myFrm.value)
-    window.onscroll = function () { window.scrollTo(0,0); };
-    this.okk=true;
-    // this.ser.submitFrm(this.myFrm.value).subscribe(
-    //   data => {
-    //   this.GoldData=data
-    //   if(this.GoldData.success==true)
-    //   {
-    //     this.okk=true;
-    //     this.contacttitle=" Thank you for getting in touch!";
-    //     this.contactmsg="  One of our colleagues will get back to you shortly.Have a great day!"
-        
-    //   }
-    //   else{
-    //     this.okk=true;
-    //     this.contacttitle="Something Went Wrong !!!";
-    //     this.contactmsg="Please Try Again..."
-    //   }
-    //   }
-    // );
+    );
+    this.myFrm.reset();
   }
 
-  next(){
-    this.okk=false;
-    window.onscroll = function () { window.scrollTo(0,window.scrollY); };
+  next() {
+    this.okk = false;
+    window.onscroll = function () { window.scrollTo(0, window.scrollY); };
   }
 }

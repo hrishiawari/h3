@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import{AdminService} from '../Services/admin.service'
 import { ActivatedRoute } from '@angular/router';
 import{req}from'./req'
+import { Http } from '@angular/http';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -24,7 +25,8 @@ request=[
   constructor(
     private FBuild:FormBuilder,
     private adser:AdminService,
-  private acRt:ActivatedRoute
+  private acRt:ActivatedRoute,
+  private http:Http
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ request=[
 
 
 
- 
+
 
 
 
@@ -41,6 +43,15 @@ request=[
       this.acRt.params.subscribe(
         params=>this.usNm=params['usNm']
       );
+
+
+this.adser.getRequest().subscribe(
+  getData=>{
+    this.data=getData
+  }
+)
+
+
 
     this.Add=this.FBuild.group({
       title:['',Validators.required],
@@ -66,6 +77,12 @@ request=[
       reader.readAsDataURL(event.target.files[0]);
       console.log(event.target.files[0].name);
     }
+  }
+
+
+  view(){
+    document.getElementById("HideDiv").classList.toggle('active')
+
   }
 
 }

@@ -39,7 +39,7 @@ export class HeadComponent implements OnInit {
   adAdmin(){
     console.log(this.AdAdmin.value);
   }
- 
+
 
 
   araylist1=[{'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}] 
