@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {adminlist} from './adminlist'
+import { AdminService } from '../Services/admin.service';
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
@@ -18,7 +19,8 @@ export class HeadComponent implements OnInit {
   ]
   constructor(
     private FBuild:FormBuilder,
-    private acRt:ActivatedRoute
+    private acRt:ActivatedRoute,
+    private adser:AdminService
   ) { }
 
   ngOnInit() {
@@ -26,23 +28,28 @@ export class HeadComponent implements OnInit {
     this.acRt.params.subscribe(
       params=>this.usNm=params['usNm']
     );
-
+    this.adser.getUserdata().subscribe(Admins=>{
+      Admins.json()
+    })
 
     this.AdAdmin=this.FBuild.group({
       name:['',Validators.required],
       category:['',Validators.required]
     })
 
-    
+
   }
 
   adAdmin(){
-    console.log(this.AdAdmin.value);
+    this.adser.AddAdmin(this.AdAdmin.value).subscribe(res=>
+    {
+     res.json()
+    })
   }
 
 
 
-  araylist1=[{'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}] 
+  araylist1=[{'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}]
   keysArray = Object.keys(this.araylist1[0]);
-  
+
 }

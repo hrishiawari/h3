@@ -27,7 +27,14 @@ this.val.subscribe(call=>{
   callback(call);
 });
 }
-
+getUserdata(){
+  return this.http.get(this.linkhit).map(fetch=>fetch.json())
+}
+AddAdmin(adminData){
+  const headers=new Headers()
+  headers.append('Content-Type','application/x-www-form-urlencoded; charset=UTF-8')
+return this.http.post(this.linkhit,adminData,{headers}).map(getres=>getres.json())
+}
 getRequest(){
   return this.http.get(this.linkhit)
   .map(res => res.json())}

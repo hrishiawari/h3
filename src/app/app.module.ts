@@ -20,6 +20,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NewComponent } from './new/new.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginlogoutService } from './Services/loginlogout.service';
+import { MobileAppsComponent } from './mobile-apps/mobile-apps.component';
+import { SchoolAppComponent } from './school-app/school-app.component';
+import { ApprequestComponent } from './apprequest/apprequest.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { LoginlogoutService } from './Services/loginlogout.service';
     NavbarComponent,
     NewComponent,
     AboutusComponent,
+    MobileAppsComponent,
+    SchoolAppComponent,
+    ApprequestComponent,
     
 
   ],

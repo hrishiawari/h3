@@ -25,8 +25,8 @@
           <div class="card" style="text-align:left" *ngFor="let adlist of adlist">
             <div class="card-title" style="color:green;margin-left:20px;">
             {{adlist.name}}
-            <div class="float-right" style="color:red;font-size:20px;">
-            {{adlist.id}}</div>
+            <!-- <div class="float-right" style="color:red;font-size:20px;">
+            {{adlist.id}}</div> -->
             </div>
             <div class="card-body" style="font-weight:bold;color:blueviolet;margin-left:20px;">
             {{adlist.category}}</div>
@@ -43,7 +43,7 @@
       <div class="col-md-3">
         <div class="card">
           <div class="hq">
-            <img [src]="ImgUrl" class="profile-pic" alt="No Preview...">
+            <img src="{{ImgUrl}}" class="profile-pic" alt="">
             <div class="profile-pic">
               <span class="fa fa-camera"></span>
               <span id="get_file" (click)="choosePhoto()">Change Image</span>

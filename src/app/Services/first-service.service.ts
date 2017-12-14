@@ -31,17 +31,18 @@ export class FirstServiceService {
   var data={
     'addTitle':dtls.addTitle,
     'name':dtls.name,
-    'email':dtls.email,
+    'emailId':dtls.email,
     'mobile':dtls.mobile,
     'adharNo':dtls.adharNo,
-    'pAddress':dtls.pAddress,
-    'cAddress':dtls.cAddress,
-    'bdate':dtls.bdate,
-    'qualif':dtls.qualif,
-    'exp':dtls.exp,
-    'lastpack':dtls.lastpack,
+    'permanentAddress':dtls.pAddress,
+    'currentAddress':dtls.cAddress,
+    'birthDate':dtls.bdate,
+    'qualification':dtls.qualif,
+    'experience':dtls.exp,
+    'lastpackage':dtls.lastpack,
     'projects':dtls.projects,
-    'mobilewhatsapp':dtls.mobilewhatsapp
+    'whatsAppNo':dtls.mobilewhatsapp
+
 
   }
     // const headers =new Headers()

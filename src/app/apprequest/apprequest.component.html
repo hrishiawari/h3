@@ -1,0 +1,80 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card" style="text-align:center">
+        <h3>Fill the Details</h3>
+        <form class="ajax-form" [formGroup]="requestApp" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-group" style="margin-top:20px;">
+            <input type="text" class="form-control" placeholder="Enter School Name" formControlName="schoolName">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.schoolName.valid">Enter School Name</span>
+          </div>
+
+
+          <fieldset formGroupName="address">
+            <div class="form-group">
+
+              <div class="row">
+                <div class="col-md-4 ">
+                  <input type="text" class="form-control" placeholder="State" formControlName="state">
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="District" formControlName="dist">
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Tal" formControlName="Tal">
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="city/Village" formControlName="cityOrVillage">
+                </div>
+
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Location" formControlName="Location">
+                </div>
+
+              </div>
+
+              <span class="text-muted text-danger" *ngIf="!requestApp.controls.address.valid">Enter Address </span>
+            </div>
+
+          </fieldset>
+
+
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Founder Name" formControlName="founder">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.founder.valid">Enter Founder Name</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter foundation Name" formControlName="foundation">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.foundation.valid">Enter foundation Name</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Head Name" formControlName="head">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.head.valid">Enter Head Name</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Adhar no of head" formControlName="headAdhar">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.headAdhar.valid">Enter Adhar no of head</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Mobile no of head" formControlName="headMobile">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.headMobile.valid">Enter Mobile no of head</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter MArketing Officer Id" formControlName="marketingOffId">
+            <span class="text-muted text-danger" *ngIf="!requestApp.controls.marketingOffId.valid">Enter MArketing Officer Id</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</div>
