@@ -12,16 +12,22 @@ export class HeadComponent implements OnInit {
   AdAdmin:FormGroup;
   usNm:string;
   ad;
-  adlist=[
-    new adminlist('Admin1','android',5),
-    new adminlist('Admin2','web',1),
-    new adminlist('Admin3','software',9)
-  ]
+
   constructor(
     private FBuild:FormBuilder,
     private acRt:ActivatedRoute,
     private adser:AdminService
   ) { }
+
+
+
+  adlist=[
+    new adminlist('Admin1','android',5),
+    new adminlist('Admin2','web',1),
+    new adminlist('Admin3','software',9)
+  ]
+
+
 
   ngOnInit() {
 
@@ -39,12 +45,11 @@ export class HeadComponent implements OnInit {
 
 
   }
-
+p;
   adAdmin(){
     this.adser.AddAdmin(this.AdAdmin.value).subscribe(res=>
     {
-     res.json()
-    })
+     this.p=res.msg    })
   }
 
 
