@@ -21,7 +21,7 @@ import { ApprequestComponent } from './app/apprequest/apprequest.component';
     {path:'mobileapp',component:MobileAppsComponent },
     {path:'head/:usNm',component:HeadComponent },
     {path:'schoolapp',component:SchoolAppComponent},
-    {path:'apprequest',component:ApprequestComponent}
+    {path:'apprequest/:forWhich',component:ApprequestComponent}
 
 
 

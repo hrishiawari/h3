@@ -3,7 +3,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="card" style="text-align:center">
-        <h3>Fill the Details</h3>
+        <h3>{{forWhich}} App Request</h3>
         <form class="ajax-form" [formGroup]="requestApp" (ngSubmit)="onSubmit()" novalidate>
           <div class="form-group" style="margin-top:20px;">
             <input type="text" class="form-control" placeholder="Enter School Name" formControlName="schoolName">
@@ -65,8 +65,8 @@
             <input type="text" class="form-control" placeholder="Enter Mobile no of head" formControlName="headMobile">
             <span class="text-muted text-danger" *ngIf="!requestApp.controls.headMobile.valid">Enter Mobile no of head</span>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter MArketing Officer Id" formControlName="marketingOffId">
+          <div class="form-group" *ngIf="check">
+            <input type="text" class="form-control" placeholder="Enter Marketing Officer Id" formControlName="marketingOffId">
             <span class="text-muted text-danger" *ngIf="!requestApp.controls.marketingOffId.valid">Enter MArketing Officer Id</span>
           </div>
 
