@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 import { Router } from '@angular/router'
 @Injectable()
 export class LoginlogoutService {
+  linkhit="http://localhost:7575/devikasweb/";
+
   @Output()
   val: EventEmitter<any>
 
@@ -23,6 +25,14 @@ export class LoginlogoutService {
     //         localStorage.setItem('currentUser', '');
     //     }
     // });
+// this.http.get(this.linkhit +"/admin/login")
+
+
+
+
+
+
+
 
     if (data.User == "admin" && data.Pass == "admin") {
       localStorage.setItem('currentUser', data.User)
@@ -33,7 +43,7 @@ export class LoginlogoutService {
         isLogin: 'true'
       })
     } else if (data.User == "head" && data.Pass == "head") {
-      
+
       localStorage.setItem('currentUser', data.User)
       this.rout.navigate(['/head', data.User]);
       console.log(data);
@@ -44,7 +54,7 @@ export class LoginlogoutService {
     } else if (data.User == "employee" && data.Pass == "employee") {
       localStorage.setItem('currentUser', data.User)
       this.rout.navigate(['/employee', data.User]);
-      
+
       console.log(data);
       this.val.emit({
         User: data.user,

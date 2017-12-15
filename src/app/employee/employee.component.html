@@ -1,3 +1,9 @@
+<!-- <div id="content">
+
+</div>
+<button (click)="add_fields()" class="btn btn-primary">+++</button> -->
+
+
 <div class="container">
     <div class="col-md-12">
         <div class="row">
@@ -15,14 +21,45 @@
                         </div>
                     </div>
                     <h3>Employee Name</h3>
-                    <h5>Other Details</h5>
+                    <h5>employee Id</h5>
                 </div>
             </div>
             <div class="col-md-6">
 
+                <!--     <form>
+                <input type="text" placeholder="Todays Plan Title">
+                <input type="text" placeholder="Description">
+                <input type="submit">
+                </form> -->
+                <div class="card" style="text-align:center;">
+
+                    <form class="ajax-form" [formGroup]="statusFrm" (ngSubmit)="submitTask()">
+                        <div class="form-group" style="margin-top:20px;">
+                            <input type="text" placeholder="title" formControlName="taskTitle">
+                            <span class="text-muted text-danger" *ngIf="!statusFrm.controls.taskTitle.valid"> Add Task</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="result Or Status" formControlName="taskDisc">
+                            <span class="text-muted text-danger" *ngIf="!statusFrm.controls.taskDisc.valid"> Add Task Discription</span>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" [disabled]="!statusFrm.valid">
+
+                    </form>
+                </div>
             </div>
             <div class="col-md-3">
+                <button type="button" class="btn btn-lg btn-primary " (click)="chechforMsg()">
+                    Notifications
+                    <span class="badge badge-danger">4</span>
+                </button>
+                <div class="card" style="margin-top:50px;" *ngIf="post">
+                    <div class="card-title">message Title</div>
+                    <div class="card-body">
+                        actual message asdsad alsdsdas dasdas asdasd asdasdq sfde aasd er as e
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>

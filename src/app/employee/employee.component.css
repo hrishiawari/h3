@@ -5,7 +5,26 @@
     padding-top:90%;
     /* margin-top: 30%; */
 }
-
+.card input,textarea{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.card-title{
+    color: green;
+    text-align: center;
+}
+.card-body{
+text-align: justify;
+}
+.BtnFn{
+    top: 0;
+    right: 0;
+    width: 20%;
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 20px;
+    }
 .hq .profile-pic{
     position: absolute;
     margin: auto;
@@ -26,7 +45,7 @@
     background-size: cover;
     color: transparent;
     background-repeat: no-repeat;
-    background-color: rgba(77, 17, 17, 0.356);  
+    background-color: rgba(77, 17, 17, 0.356);
 }
 .hq .profile-pic:hover {
     background-color: rgba(0,0,0,.5);

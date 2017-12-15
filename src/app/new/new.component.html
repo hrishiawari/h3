@@ -1,16 +1,39 @@
+
+
+      <div *ngIf="!isLogin">
+          <form class="form-inline my-2 my-lg-0" [formGroup]="myFrm" (ngSubmit)="onLogin()" novalidate >
+            <input class="form-control mr-sm-2" type="text" placeholder="Username" formControlName="User">
+            <input class="form-control mr-sm-2" type="text" placeholder="Password" formControlName="Pass">
+            <input type="submit" value="Login" name="submit" class="btn btn-info">
+          </form>
+        </div>
+        <div *ngIf="isLogin">
+
+          <input type="submit" value="Logout" (click)="logout()" class="btn btn-info">
+        </div>
+
+
+
+
 <div class="row">
   <div class="col-md-12">
     <br>
     <div class="row">
     <div class="col-md-3">   </div>
     <div class="col-md-6">
-      <div class="card">
+      <div *ngFor="let array of Adds">
+      <div class="card" >
         <div class="card-body">
-          <h4 class="card-title" style="color:green;margin-left:20px;">{{title}}</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button style="margin-left:40%;" class="btn btn-primary" (click)="submitFrm(title)">Apply</button>
+          <h4 class="card-title" style="color:green;margin-left:20px;">{{array.title}}</h4>
+          <br>
+          <p class="card-text" >{{array.description}}</p>
+          <button style="margin-left:40%;" class="btn btn-primary" (click)="submitFrm(array.adminId,array.title)">Apply</button>
         </div>
+        <br>
       </div>
+<br>
+    </div>
+
     </div>
     <div class="col-md-3"> </div>
     </div>

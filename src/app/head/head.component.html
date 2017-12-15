@@ -14,6 +14,14 @@
               <textarea type="text" placeholder="Category" formControlName="category"></textarea>
               <span class="text-muted" *ngIf="!AdAdmin.controls.category.valid">enter Category</span>
             </div>
+            <div class="form-group">
+                <textarea type="text" placeholder="adminId" formControlName="adminId"></textarea>
+                <span class="text-muted" *ngIf="!AdAdmin.controls.adminId.valid">enter adminId</span>
+              </div>
+              <div class="form-group">
+                  <textarea type="text" placeholder="password" formControlName="password"></textarea>
+                  <span class="text-muted" *ngIf="!AdAdmin.controls.password.valid">enter password</span>
+                </div>
             <input type="submit" value="Make Admin" class="btn btn-info">
           </form>
         </div>
@@ -22,14 +30,16 @@
           <br>
 
           <button class="btn btn-primary">Admin List</button>
-          <div class="card" style="text-align:left" *ngFor="let adlist of adlist">
+          <div class="card" style="text-align:left" *ngFor="let adlist of Adminlist" (click)="goToAdminPanel(adlist.adminId)">
             <div class="card-title" style="color:green;margin-left:20px;">
-            {{adlist.name}}
+            {{adlist.adminId}}
             <!-- <div class="float-right" style="color:red;font-size:20px;">
             {{adlist.id}}</div> -->
             </div>
             <div class="card-body" style="font-weight:bold;color:blueviolet;margin-left:20px;">
-            {{adlist.category}}</div>
+            Name : {{adlist.name}}</div>
+            <div class="card-body" style="font-weight:bold;color:blueviolet;margin-left:20px;">
+           Category : {{adlist.category}}</div>
           </div>
         </div>
       </div>
@@ -60,7 +70,7 @@
   </div>
 </div>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th *ngFor="let key of keysArray; let i = index;">{{key}}</th>
@@ -71,4 +81,4 @@
       <td *ngFor="let key of keysArray;">{{item[key]}}</td>
       <tr>
   </tbody>
-</table>
+</table> -->

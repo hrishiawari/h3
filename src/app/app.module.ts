@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import{AdminService} from '../app/Services/admin.service'
 // import {LoginlogoutService} from '../app/Services/loginlogout.service'
 import{GaurdserService} from '../app/Services/gaurdser.service'
+import{EmpService} from '../app/Services/emp.service'
 
 import { AppComponent } from './app.component';
 import { AddEmpComponent } from './add-emp/add-emp.component';
@@ -39,13 +40,25 @@ import { ApprequestComponent } from './apprequest/apprequest.component';
     MobileAppsComponent,
     SchoolAppComponent,
     ApprequestComponent,
-    
+
 
   ],
   imports: [
-    BrowserModule,RouterModule,Approuter ,HttpClientModule,HttpModule,FormsModule,ReactiveFormsModule
+            BrowserModule,
+            RouterModule,
+            Approuter,
+            HttpClientModule,
+            HttpModule,
+            FormsModule,
+            ReactiveFormsModule
   ],
-  providers: [FirstServiceService,AdminService,GaurdserService,LoginlogoutService],
+  providers: [
+              FirstServiceService,
+              EmpService,
+              AdminService,
+              GaurdserService,
+               LoginlogoutService
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

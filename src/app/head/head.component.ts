@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import {adminlist} from './adminlist'
 import { AdminService } from '../Services/admin.service';
 @Component({
   selector: 'app-head',
@@ -12,6 +11,7 @@ export class HeadComponent implements OnInit {
   AdAdmin:FormGroup;
   usNm:string;
   ad;
+Adminlist:string[]=[];
 
   constructor(
     private FBuild:FormBuilder,
@@ -19,28 +19,24 @@ export class HeadComponent implements OnInit {
     private adser:AdminService
   ) { }
 
-
-
-  adlist=[
-    new adminlist('Admin1','android',5),
-    new adminlist('Admin2','web',1),
-    new adminlist('Admin3','software',9)
-  ]
-
-
-
   ngOnInit() {
+    this.adser.GetAdmin().subscribe(adminlist=>
+    {this.Adminlist=adminlist.result
+    console.log(this.Adminlist)}
+    )
 
     this.acRt.params.subscribe(
       params=>this.usNm=params['usNm']
     );
-    this.adser.getUserdata().subscribe(Admins=>{
-      Admins.json()
-    })
+    // this.adser.getUserdata().subscribe(Admins=>{
+    //   Admins.json()
+    // })
 
     this.AdAdmin=this.FBuild.group({
       name:['',Validators.required],
-      category:['',Validators.required]
+      category:['',Validators.required],
+      adminId:['',Validators.required],
+      password:['',Validators.required]
     })
 
 
@@ -53,6 +49,9 @@ p;
   }
 
 
+  goToAdminPanel(adminid){
+    this.adser.headToadmin(adminid)
+  }
 
   araylist1=[{'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}, {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}]
   keysArray = Object.keys(this.araylist1[0]);

@@ -1,6 +1,7 @@
 <div class="col-md-12">
   <div class="row">
     {{addtitle}}
+    {{adminId}}
     <div class="card">
       <br>
       <form class="ajax-form" id="contactForm" [formGroup]="myFrm" (ngSubmit)="onFrmSub()" novalidate>
@@ -41,8 +42,8 @@
           <span class="text-muted text-danger" *ngIf="!myFrm.controls.qualif.valid">Qualification</span>
         </div>
         <div class="form-group">
-          <textarea class="form-control" type="text" placeholder="Experiance" formControlName="exp"></textarea>
-          <span class="text-muted text-danger" *ngIf="!myFrm.controls.exp.valid">Experiance</span>
+          <textarea class="form-control" type="text" placeholder="Experiance/Fresher" formControlName="exp"></textarea>
+          <span class="text-muted text-danger" *ngIf="!myFrm.controls.exp.valid">Experiance/Fresher</span>
         </div>
         <div class="form-group">
           <textarea class="form-control" type="text" placeholder="Projects" formControlName="projects"></textarea>

@@ -2,13 +2,7 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-3">
-          <div class="card" *ngFor="let request of request"(click)="view()">
-              <div class="card-title">
-                {{request.name}}
-                {{request.desc}}
-               </div>
-              <div class="card-body">{{request.id}}</div>
-               </div>
+
       </div>
       <div class="col-md-6">
 
@@ -34,8 +28,9 @@
 
 
 
-        <button (click)="post=!post" class="btn btn-primary">Post New Add</button>
-        <div class="card" *ngIf="post">
+{{data}}
+        <div *ngIf="post">
+                <div class="card" >
           <br>
           <form class="ajax-form" [formGroup]="Add" (ngSubmit)="submitAdd();Add.reset()">
             <div class="form-group">
@@ -43,18 +38,38 @@
               <span class="text-muted" *ngIf="!Add.controls.title.valid">Enter Add Title</span>
             </div>
             <div class="form-group">
-              <textarea type="text" placeholder="Discription" formControlName="disc"></textarea>
-              <span class="text-muted" *ngIf="!Add.controls.disc.valid">Enter Discription</span>
+              <textarea type="text" placeholder="Discription" formControlName="description"></textarea>
+              <span class="text-muted" *ngIf="!Add.controls.description.valid">Enter Discription</span>
             </div>
-            <input type="submit" value="Publish Add" class="btn btn-info">
+            <div class="form-group">
+                <textarea type="text" placeholder="adminId" formControlName="adminId"></textarea>
+                <span class="text-muted" *ngIf="!Add.controls.adminId.valid">Enter adminId</span>
+              </div>
+            <input type="submit" value="Publish Add" class="btn btn-info" [disabled]="!Add.valid">
           </form>
           <br>
         </div>
+        </div>
+
+        <div *ngIf="post">
+
+          <div class="card" *ngFor="let request of request"(click)="view()">
+            <div class="card-title">
+              {{request.name}}
+              {{request.desc}}
+             </div>
+            <div class="card-body">{{request.id}}</div>
+             </div>
+
+
+        </div>
+
+
       </div>
       <div class="col-md-3">
         <div class="card">
           <div class="hq">
-            <img [src]="ImgUrl" class="profile-pic" alt="No Preview...">
+            <img [src]="ImgUrl" class="profile-pic" alt="">
             <div class="profile-pic">
               <span class="fa fa-camera"></span>
               <span id="get_file" (click)="choosePhoto()">Change Image</span>
@@ -70,3 +85,11 @@
     </div>
   </div>
 </div>
+
+<div class="BtnFn" >
+  <button type="button" class="btn btn-lg btn-primary" (click)="post=!post">
+      Notifications <span class="badge badge-danger">4</span>
+    </button>
+</div>
+
+

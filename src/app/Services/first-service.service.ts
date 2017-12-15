@@ -9,17 +9,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class FirstServiceService {
   val:EventEmitter<any>
-  linkhit="http://localhost:7575/devikasweb/"
+  linkhit="http://localhost:7575/devikasweb"
   constructor(private http:Http) {
     this.val=new EventEmitter<String>();
 
   }
 
 
-  addtitle(title){
+  addtitle(adminId,title){
     // console.log(title)
     this.val.emit({
-
+      adminId:adminId,
       title :title
 
     })
@@ -29,6 +29,7 @@ export class FirstServiceService {
 
 
   var data={
+    'adminId':dtls.adminId,
     'addTitle':dtls.addTitle,
     'name':dtls.name,
     'emailId':dtls.email,
@@ -50,12 +51,14 @@ export class FirstServiceService {
     // const body = JSON.stringify(data);
 console.log(data);
 
-    return this.http.post(this.linkhit +"user/UserRegistration", data )
+    return this.http.post(this.linkhit +"/user/UserRegistration", data )
     .map(res => res.json())
   }
 
 
-
+  getAllads(){
+       return this.http.get(this.linkhit +"/advertise/getAllAdvertises").map(res=>res.json())
+  }
 
   calling(callback: any) {
     this.val.subscribe(sub => {

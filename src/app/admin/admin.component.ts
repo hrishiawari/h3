@@ -45,24 +45,24 @@ request=[
       );
 
 
-this.adser.getRequest().subscribe(
-  getData=>{
-    this.data=getData
-  }
-)
+// this.adser.getRequest().subscribe(
+//   getData=>{
+//     this.data=getData
+//   }
+// )
 
 
 
     this.Add=this.FBuild.group({
       title:['',Validators.required],
-      disc:['',Validators.required]
+      description:['',Validators.required],
+      adminId:['',Validators.required]
     })
   }
   submitAdd(){
-    // console.log(this.Add.value)
     var dtl=this.Add.value
     this.adser.postAdd(dtl).subscribe(res=>{
-      this.data=res;
+      this.data=res.msg;
     })
   }
   choosePhoto() {

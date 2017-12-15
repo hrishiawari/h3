@@ -15,10 +15,12 @@ export class AddEmpComponent implements OnInit {
   contacttitle;
   contactmsg;
   addtitle;
-
-  obj2
+  adminId;
+  obj2;
   obj1 = {
+    adminId:this.adminId,
     addTitle: this.addtitle,
+
   }
 
 
@@ -38,7 +40,9 @@ export class AddEmpComponent implements OnInit {
     this.ser.calling(dt => {
 
       this.addtitle = dt.title;
+      this.adminId=dt.adminId;
       this.obj1 = {
+        adminId:this.adminId,
         addTitle: this.addtitle,
 
       }
@@ -60,9 +64,9 @@ export class AddEmpComponent implements OnInit {
       pAddress: ['', Validators.required],
       bdate: ['', Validators.required],
       qualif: ['', Validators.required],
-      exp: ['', Validators.required],
-      lastpack: ['', Validators.required],
-      projects: ['', Validators.required],
+      exp: ['',Validators.required],
+      lastpack: [''],
+      projects: [''],
       mobilewhatsapp: ['', Validators.required],
 
 
@@ -84,7 +88,7 @@ export class AddEmpComponent implements OnInit {
 
     var res = JSON.stringify(this.obj1);
     let d = JSON.parse(res)
-    // console.log(d);
+    console.log(d);
 
 
 
@@ -92,26 +96,26 @@ export class AddEmpComponent implements OnInit {
 
 
 
-    // window.onscroll = function () { window.scrollTo(0, 0); };
-    // this.okk = true;
+    window.onscroll = function () { window.scrollTo(0, 0); };
+    this.okk = true;
 
 
     this.ser.submitFrm(d).subscribe(
       data => {
         this.GoldData = data
-        console.log(this.GoldData);
+        // console.log(this.GoldData);
 
-        // if (this.GoldData.success === true) {
-        //   this.okk = true;
-        //   this.contacttitle = ' Thank you for getting in touch!';
-        //   this.contactmsg = '  One of our colleagues will get back to you shortly.Have a great day!'
+        if (this.GoldData.status === "success") {
 
-        // }
-        // else {
-        //   this.okk = true;
-        //   this.contacttitle = 'Something Went Wrong !!!';
-        //   this.contactmsg = 'Please Try Again...'
-        // }
+          this.contacttitle = ' Thank you !';
+          this.contactmsg = this.GoldData.msg;
+
+        }
+        else {
+
+          this.contacttitle = 'Something Went Wrong !!!';
+          this.contactmsg = 'Please Try Again...'
+        }
       },
       err=>{
         return err

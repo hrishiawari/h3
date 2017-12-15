@@ -5,6 +5,15 @@
        margin-top: 10px;
 
 }
+.BtnFn{
+right: 0;
+bottom: 0;
+width: 20%;
+position: absolute;
+margin-right: 20px;
+margin-bottom: 20px;
+}
+
 .card input,textarea{
     width: 70%;
     margin-left: 15%;
